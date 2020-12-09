@@ -1,5 +1,11 @@
 #include "PlikZAdresatami.h"
 
+
+string PlikZAdresatami::pobierzNazwePliku()
+    {
+        return NAZWAPLIKUZADRESATAMI;
+    }
+
 int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
 {
     Adresat adresat;
@@ -8,7 +14,7 @@ int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
+    plikTekstowy.open(NAZWAPLIKUZADRESATAMI.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
@@ -45,9 +51,9 @@ int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(st
     return idUzytkownika;
 }
 
-string pobierzLiczbe(string tekst, int pozycjaZnaku)
+string PlikZAdresatami::pobierzLiczbe(string tekst, int pozycjaZnaku)
 {
-    MetodyPomocnicze.pobierzLiczbe(string tekst, int pozycjaZnaku);
+    MetodyPomocnicze::pobierzLiczbe(tekst, pozycjaZnaku);
 }
 
 
@@ -99,24 +105,24 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
 }
 
 
-int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
+int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdAdresata = 0;
     int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
     return idAdresata;
 }
 
-void dopiszAdresataDoPliku(Adresat adresat)
+void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
-    plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::out | ios::app);
+    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good() == true)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty(plikTekstowy) == true)
+        if (czyPlikJestPusty() == true)
         {
             plikTekstowy << liniaZDanymiAdresata << endl;
         }
@@ -138,8 +144,8 @@ string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adr
 {
     string liniaZDanymiAdresata = "";
 
-    liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzId) + '|';
-    liniaZDanymiAdresata += konwerjsaIntNaString(adresat.pobierzIdUzytkownika) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzId()) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIdUzytkownika()) + '|';
     liniaZDanymiAdresata += adresat.pobierzImie() + '|';
     liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
     liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
@@ -149,4 +155,21 @@ string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adr
     return liniaZDanymiAdresata;
 }
 
+
+bool PlikZAdresatami::czyPlikJestPusty()
+{
+    bool pusty = true;
+    fstream plikTekstowy;
+    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
+
+    if (plikTekstowy.good() == true)
+    {
+        plikTekstowy.seekg(0, ios::end);
+        if (plikTekstowy.tellg() != 0)
+            pusty = false;
+    }
+
+    plikTekstowy.close();
+    return pusty;
+}
 

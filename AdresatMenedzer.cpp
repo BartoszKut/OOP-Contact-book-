@@ -58,11 +58,11 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 
 void AdresatMenedzer::dopiszAdresataDoPliku(Adresat adresat)
 {
-    plikZAdresatami.dopiszAdresataDoPliku(Adresat adresat);
+    plikZAdresatami.dopiszAdresataDoPliku(adresat);
 }
 
 
 string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
 {
-    MetodyPomocnicze.zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(tekst);
 }

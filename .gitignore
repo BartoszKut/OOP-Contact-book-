@@ -1,3 +1,7 @@
-*.cscope_file_list
-*.depend
-*.layout
+bin/
+obj/
+plan/
+Ksiazka obiektowo*
+.gitignore.swp
+Uzyt*
+OOP-Contact-book-/
