@@ -32,12 +32,12 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 
     cout << "Podaj imie: ";
     cin >> Imie;
-    zamienPierwszaLitereNaDuzaAPozostaleNaMale(Imie);
+    MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(Imie);
     adresat.ustawImie(Imie);
 
     cout << "Podaj nazwisko: ";
     cin >> Nazwisko;
-    zamienPierwszaLitereNaDuzaAPozostaleNaMale(Nazwisko);
+    MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(Nazwisko);
     adresat.ustawNazwisko(Nazwisko);
 
     cout << "Podaj numer telefonu: ";
@@ -59,10 +59,4 @@ Adresat AdresatMenedzer::podajDaneNowegoAdresata()
 void AdresatMenedzer::dopiszAdresataDoPliku(Adresat adresat)
 {
     plikZAdresatami.dopiszAdresataDoPliku(adresat);
-}
-
-
-string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
-{
-    MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(tekst);
 }

@@ -31,6 +31,8 @@ public:
     void wypiszWszytkichUzytkownikow();
     void zmianaHaslaZalogowanegoUzytkownika();
     int wylogowywanieUzytkownika();
+
+    //int ustawIdZalogowanegoUzytkownika();
 };
 
 #endif

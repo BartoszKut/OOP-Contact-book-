@@ -140,7 +140,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 }
 
 
-string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
+string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) //Tutaj brak operatora zasiêgu
 {
     string liniaZDanymiAdresata = "";
 

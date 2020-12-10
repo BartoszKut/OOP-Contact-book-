@@ -53,7 +53,7 @@ void UzytkownikMenedzer::rejestracjaUzytkownika()
     uzytkownicy.push_back(uzytkownik);
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
 
-    cout << endl << "Konto zalozono pomyslnie" << endl << endl;
+    cout << endl << "Konto zalozono pomyslnie" << endl;
     system("pause");
 }
 
@@ -80,6 +80,8 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     string login = "", haslo = "";
 
     cout << "Podaj login: ";
+    cin.clear();
+    cin.sync();
     getline(cin, login);
 
     for (int i = 0; i < uzytkownicy.size(); i++)
