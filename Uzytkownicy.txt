@@ -1,6 +1,4 @@
 1|Barti|123|
-2|Olga|1234|
-3|amadi|mozart|
-4|123|123|
-5|1234|1241|
-6|abecadlo|123|
+2|Olga|123|
+3|Barbie|123|
+4|Amelia|123|

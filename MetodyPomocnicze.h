@@ -18,6 +18,8 @@ public:
     static int konwersjaStringNaInt(string liczba);
     static string pobierzLiczbe(string tekst, int pozycjaZnaku);
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    char wybierzOpcjeZMenuGlownego();
+    char wczytajZnak();
 };
 
 #endif

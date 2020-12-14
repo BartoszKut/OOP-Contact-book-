@@ -80,24 +80,24 @@ int UzytkownikMenedzer::logowanieUzytkownika()
     string login = "", haslo = "";
 
     cout << "Podaj login: ";
-    cin.clear();
-    cin.sync();
-    getline(cin, login);
+    cin >> login;
 
-    for (int i = 0; i < uzytkownicy.size(); i++)
+    vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
+    while (itr != uzytkownicy.end())
     {
-       if (uzytkownicy[i].pobierzLogin() == login)
+        if (itr->pobierzLogin() == login)
         {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                getline(cin, haslo);
+                cin >> haslo;
+                uzytkownik.ustawHaslo(haslo);
 
-                if (uzytkownicy[i].pobierzHaslo() == haslo)
+                if (itr->pobierzHaslo() == haslo)
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    idZalogowanegoUzytkownika = uzytkownicy[i].pobierzId();
+                    idZalogowanegoUzytkownika = itr->pobierzId();
                     return idZalogowanegoUzytkownika;
                 }
             }
@@ -105,7 +105,11 @@ int UzytkownikMenedzer::logowanieUzytkownika()
             system("pause");
             return 0;
         }
+        itr++;
     }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return 0;
 }
 
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
@@ -127,10 +131,33 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika()
     //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownik);
 }
 
-int UzytkownikMenedzer::wylogowywanieUzytkownika()
+int UzytkownikMenedzer::wylogujUzytkownika()
 {
     idZalogowanegoUzytkownika = 0;
     cout << "Wylogowano" << endl;
 }
+
+
+bool UzytkownikMenedzer::czyUzytkownikJestZalogowany()
+{
+    if (idZalogowanegoUzytkownika > 0) {
+        return true;
+    }
+    else
+        return false;
+}
+
+
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
+}
+
+
+void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku()
+{
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+
 
 
