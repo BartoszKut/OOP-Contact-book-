@@ -3,42 +3,43 @@
 
 #include <iostream>
 
-#include "UzytkownikMenedzer.h"
-#include "AdresatMenedzer.h"
+#include "UzytkownikMenadzer.h"
+#include "AdresatMenadzer.h"
 #include "MetodyPomocnicze.h"
 
 
 using namespace std;
 
-class KsiazkaAdresowa
-{
-    UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer* adresatMenedzer;
-    const string nazwaPlikuZAdresatami;
+class KsiazkaAdresowa{
+    UzytkownikMenadzer uzytkownikMenadzer;
+    AdresatMenadzer* adresatMenadzer;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
-   public:
-    /*KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
-    : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami)
-    {
-        uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-        adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-    };*/
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string NAZWAPLIKUZADRESATAMI) :
-		uzytkownikMenedzer(nazwaPlikuZUzytkownikami), nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
+public:
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :
+		uzytkownikMenadzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
+	 {
+		adresatMenadzer = NULL;
+	};
 	~KsiazkaAdresowa() {
-		delete adresatMenedzer;
+		delete adresatMenadzer;
+		adresatMenadzer = NULL;
 	}
 
-    void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
-    void wypiszWszytkichUzytkownikow();
-    void zmianaHaslaZalogowanegoUzytkownika();
-    //int wylogujUzytkownika();
-    void czyUzytkownikJestZalogowany();
-    void wypiszWszystkichAdresatow();
-    void dodajAdresata();
-    char wybierzOpcjeZMenuGlownego();
-    int pobierzIdZalogowanegoUzytkownika();
+	void czyUzytkownikJestZalogowany();
+	void rejestracjaUzytkownika();
+	void logowanieUzytkownika();
+	void wylogowanieUzytkownika();
+	void zmianaHaslaZalogowanegoUzytkownika();
+	void wypiszWszystkichUzytkownikow();
+	void wypiszWszystkichAdresatow();
+	void dodajAdresata();
+	void wyszukajAdresatowPoImieniu();
+	void wyszukajAdresatowPoNazwisku();
+	char wybierzOpcjeZMenuGlownego();
+	int pobierzIdZalogowanegoUzytkownika();
+	char wybierzOpcjeZMenuUzytkownika();
+	int pobierzIdOstatniegoAdresata();
 };
 
 #endif

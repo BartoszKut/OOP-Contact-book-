@@ -1,1 +1,6 @@
-1|1|Olga|Jaglarz|300400500|jaglaszek|czarnochowice|
+1|1|Olga|Olga|123|123|123|
+2|1|Olga|Jaglarz|123|123|123|
+1|2|Olga|Hyzy|123|12|123|
+2|2|Olga|Baba|123|123|123|
+3|1|kto|123|1123|12|12|
+4|1|ebe |ebe|123|12|123|

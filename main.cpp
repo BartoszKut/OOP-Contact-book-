@@ -1,27 +1,28 @@
 #include <iostream>
+
 #include "KsiazkaAdresowa.h"
 
 
 using namespace std;
 
-int main()
-{
+int main() {
     KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
+    /*//ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    //ksiazkaAdresowa.logowanieUzytkownika();
+    //ksiazkaAdresowa.dodajAdresata();
+    //ksiazkaAdresowa.wypiszWszystkichAdresatow();
+    ksiazkaAdresowa.logowanieUzytkownika();
+    ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();*/
     char wybor;
-    while (true)
-    {
-        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0)
-        {
+    while (true) {
+        if (ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika() == 0) {
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
-
-            switch (wybor)
-            {
+            switch (wybor) {
             case '1':
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
                 ksiazkaAdresowa.logowanieUzytkownika();
-                //idZalogowanegoUzytkownika = logowanieUzytkownika(uzytkownicy);
                 break;
             case '9':
                 exit(0);
@@ -32,61 +33,37 @@ int main()
                 break;
             }
         }
-        /*else
-        {
+        else {
+            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
-            if (adresaci.empty() == true)
-                // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
-                // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
-                // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata
-                idOstatniegoAdresata = wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
-
-            wybor = wybierzOpcjeZMenuUzytkownika();
-
-            switch (wybor)
-            {
+            switch (wybor) {
             case '1':
-                idOstatniegoAdresata = dodajAdresata(adresaci, idZalogowanegoUzytkownika, idOstatniegoAdresata);
+                ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-                wyszukajAdresatowPoImieniu(adresaci);
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                wyszukajAdresatowPoNazwisku(adresaci);
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
-                wyswietlWszystkichAdresatow(adresaci);
+                ksiazkaAdresowa.wypiszWszystkichAdresatow();
                 break;
             case '5':
-                idUsunietegoAdresata = usunAdresata(adresaci);
-                idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+                //idUsunietegoAdresata = usunAdresata(adresaci);
+                //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
                 break;
             case '6':
-                edytujAdresata(adresaci);
+                //edytujAdresata(adresaci);
                 break;
             case '7':
-                zmianaHaslaZalogowanegoUzytkownika(uzytkownicy, idZalogowanegoUzytkownika);
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '8':
-                idZalogowanegoUzytkownika = 0;
-                adresaci.clear();
+                ksiazkaAdresowa.wylogowanieUzytkownika();
+                //adresaci.clear();
                 break;
             }
         }
     }
-
-    cout << "----------KSIAZKA ADRESOWA----------" << endl;
-    cout << "1. Rejestracja" << endl;
-    cout << "2. Logowanie." << endl;
-    cout << "9. Koniec programu." << end;
-
-
-    ksiazkaAdresowa.rejestracjaUzytkownika();
-    //ksiazkaAdresowa.rejestracjaUzytkownika();
-    //ksiazkaAdresowa.rejestracjaUzytkownika();
-    ksiazkaAdresowa.logowanieUzytkownika();
-    ksiazkaAdresowa.dodajAdresata();
-
-return 0;*/
-}
 }

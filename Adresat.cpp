@@ -1,74 +1,72 @@
 #include "Adresat.h"
 
-void Adresat::ustawId(int noweId)
-{
-    if(noweId >= 0)
-    id = noweId;
+
+void Adresat::ustawId(int noweId){
+	if (noweId >= 0)
+		id = noweId;
 }
 
-void Adresat::ustawIdUzytkownika(int noweIdUzytkownika)
-{
-    if(noweIdUzytkownika >= 0)
-    idUzytkownika = noweIdUzytkownika;
-}
-
-void Adresat::ustawImie(string noweImie)
-{
-    imie = noweImie;
-}
-
-void Adresat::ustawNazwisko(string noweNazwisko)
-{
-    nazwisko = noweNazwisko;
-}
-
-void Adresat::ustawNumerTelefonu(string nowyNumerTelefonu)
-{
-    numerTelefonu = nowyNumerTelefonu;
-}
-
-void Adresat::ustawEmail(string nowyEmail)
-{
-    email = nowyEmail;
-}
-
-void Adresat::ustawAdres(string nowyAdres)
-{
-    adres = nowyAdres;
+void Adresat::ustawIdUzytkownika(int noweIdUzytkownika) {
+	if (noweIdUzytkownika >= 0)
+		idUzytkownika = noweIdUzytkownika;
 }
 
 
-int Adresat::pobierzId()
-{
-    return id;
+void Adresat::ustawImie(string noweImie) {
+	imie = noweImie;
 }
 
-int Adresat::pobierzIdUzytkownika()
-{
-    return idUzytkownika;
+
+void Adresat::ustawNazwisko(string noweNazwisko) {
+	nazwisko = noweNazwisko;
 }
 
-string Adresat::pobierzImie()
-{
-    return imie;
+
+void Adresat::ustawNumerTelefonu(string nowyNumerTelefonu) {
+	numerTelefonu = nowyNumerTelefonu;
 }
 
-string Adresat::pobierzNazwisko()
-{
-    return nazwisko;
+
+void Adresat::ustawEmail(string nowyEmail) {
+	email = nowyEmail;
 }
 
-string Adresat::pobierzNumerTelefonu()
-{
-    return numerTelefonu;
+
+void Adresat::ustawAdres(string nowyAdres) {
+	adres = nowyAdres;
 }
 
-string Adresat::pobierzEmail()
-{
-    return email;
+
+int Adresat::pobierzId() {
+	return id;
 }
 
-string Adresat::pobierzAdres()
-{
-    return adres;
+
+int Adresat::pobierzIdUzytkownika() {
+	return idUzytkownika;
+}
+
+
+string Adresat::pobierzImie() {
+	return imie;
+}
+
+
+string Adresat::pobierzNazwisko() {
+	return nazwisko;
+}
+
+
+string Adresat::pobierzNumerTelefonu() {
+	return numerTelefonu;
+}
+
+
+string Adresat::pobierzEmail() {
+	return email;
+}
+
+
+string Adresat::pobierzAdres() {
+	return adres;
 }

@@ -6,30 +6,28 @@
 #include <fstream>
 #include <cstdlib>
 
-#include "MetodyPomocnicze.h"
 #include "Adresat.h"
-
+#include "MetodyPomocnicze.h"
 
 using namespace std;
 
-class PlikZAdresatami
-{
-    const string nazwaPlikuZAdresatami;
-    int idOstatniegoAdresata;
+class PlikZAdresatami {
+	const string NAZWA_PLIKU_Z_ADRESATAMI;
+	int idOstatniegoAdresata;
 
-    bool czyPlikJestPusty();
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    string pobierzLiczbe(string tekst, int pozycjaZnaku);
-    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-
+	bool czyPlikJestPusty();
+	string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+	int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+	int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+	string pobierzLiczbe(string tekst, int pozycjaZnaku);
+	Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 public:
-    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI){};
-    void dopiszAdresataDoPliku(Adresat adresat);
-    vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-
-    //string pobierzNazwePliku();
+	PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
+	bool dopiszAdresataDoPliku(Adresat adresat);
+	vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 };
+
+
+
 
 #endif
