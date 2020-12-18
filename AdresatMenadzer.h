@@ -1,5 +1,5 @@
-#ifndef ADRESATMENEDZER_H
-#define ADRESATMENEDZER_H
+#ifndef ADRESATMENADZER_H
+#define ADRESATMENADZER_H
 
 #include <iostream>
 #include <vector>
@@ -21,8 +21,8 @@ class AdresatMenadzer {
 	Adresat podajDaneNowegoAdresata();
 
 	void wyswietlDaneAdresata(Adresat adresat);
-	string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);//nowo dodane
 	void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);//nowo dodane
+	int podajIdWybranegoAdresata();//nowo dodane
 	PlikZAdresatami plikZAdresatami;
 public:
 	/*AdresatMenadzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};*/
@@ -37,6 +37,9 @@ public:
 	void wyswietlWszystkichAdresatow();
 	void wyszukajAdresatowPoImieniu();
 	void wyszukajAdresatowPoNazwisku();
+	int usunAdresata();
+	void usunPlik(string nazwaPlikuZRozszerzeniem);
+	void zmienNazwePliku(string staraNazwa, string nowaNazwa);//obiet metody moga isc do prywantych
 };
 
 

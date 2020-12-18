@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ public:
 	static int wczytajLiczbeCalkowita();
 	static char wybierzOpcjeZMenuGlownego();
 	static char wybierzOpcjeZMenuUzytkownika();
+	static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
 };
 
 

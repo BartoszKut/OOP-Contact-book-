@@ -8,21 +8,22 @@
 
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
+#include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikZAdresatami {
+class PlikZAdresatami : public PlikTekstowy {
 	const string NAZWA_PLIKU_Z_ADRESATAMI;
 	int idOstatniegoAdresata;
 
-	bool czyPlikJestPusty();
 	string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 	int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
 	int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
 	string pobierzLiczbe(string tekst, int pozycjaZnaku);
 	Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 public:
-	PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
+	//PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
+	PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku) {}; // nowy konstruktor
 	bool dopiszAdresataDoPliku(Adresat adresat);
 	vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
 };
