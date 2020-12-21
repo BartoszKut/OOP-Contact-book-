@@ -11,6 +11,7 @@
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
 #include "UzytkownikMenadzer.h"
+#include "MetodyPomocnicze.h"
 
 using namespace std;
 
@@ -37,9 +38,8 @@ public:
 	void wyswietlWszystkichAdresatow();
 	void wyszukajAdresatowPoImieniu();
 	void wyszukajAdresatowPoNazwisku();
-	int usunAdresata();
-	void usunPlik(string nazwaPlikuZRozszerzeniem);
-	void zmienNazwePliku(string staraNazwa, string nowaNazwa);//obiet metody moga isc do prywantych
+    int usunAdresata();
+	void edytujAdresata();
 };
 
 

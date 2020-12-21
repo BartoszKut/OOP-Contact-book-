@@ -20,7 +20,7 @@ class PlikZUzytkownikami : public PlikTekstowy {
 
 public:
 	//PlikZUzytkownikami(string nazwaPlikuZUzytkownikami) : NAZWA_PLIKU_Z_UZYTKOWNIKAMI(nazwaPlikuZUzytkownikami) {};
-	PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku) {};
+	PlikZUzytkownikami(string nazwaPliku) : PlikTekstowy(nazwaPliku) {};
 	void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
 	vector <Uzytkownik> wczytajUzytkownikowZPliku();
 	void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>& uzytkownicy);

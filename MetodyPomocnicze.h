@@ -17,6 +17,7 @@ public:
 	static char wybierzOpcjeZMenuGlownego();
 	static char wybierzOpcjeZMenuUzytkownika();
 	static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+	static char wybierzOpcjeZMenuEdycja();
 };
 
 

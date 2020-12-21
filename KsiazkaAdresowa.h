@@ -40,6 +40,8 @@ public:
 	int pobierzIdZalogowanegoUzytkownika();
 	char wybierzOpcjeZMenuUzytkownika();
 	int pobierzIdOstatniegoAdresata();
+	void edytujAdresata();
+	int usunAdresata();
 };
 
 #endif

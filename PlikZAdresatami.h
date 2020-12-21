@@ -15,6 +15,7 @@ using namespace std;
 class PlikZAdresatami : public PlikTekstowy {
 	const string NAZWA_PLIKU_Z_ADRESATAMI;
 	int idOstatniegoAdresata;
+	const string nazwaTymczasowegoPlikuZAdresatami;
 
 	string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 	int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -23,9 +24,18 @@ class PlikZAdresatami : public PlikTekstowy {
 	Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 public:
 	//PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {};
-	PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku) {}; // nowy konstruktor
+	PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku) , nazwaTymczasowegoPlikuZAdresatami("Adresaci_tymczasowo.txt")
+	{
+		idOstatniegoAdresata = pobierzIdOstatniegoAdresata();
+	}; // nowy konstruktor
 	bool dopiszAdresataDoPliku(Adresat adresat);
 	vector<Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+	void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+    void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+    int pobierzIdOstatniegoAdresata();
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEdytowanegoAdresata);
+    int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
+    void usunWybranaLinieWPliku(int numerUsuwanejLinii);
 };
 
 

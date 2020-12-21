@@ -78,3 +78,13 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
 int KsiazkaAdresowa::pobierzIdOstatniegoAdresata() {
     adresatMenadzer->pobierzIdOstatniegoAdresata();
 }
+
+
+void KsiazkaAdresowa::edytujAdresata() {
+    adresatMenadzer->edytujAdresata();
+}
+
+
+int KsiazkaAdresowa::usunAdresata() {
+    adresatMenadzer->usunAdresata();
+}
